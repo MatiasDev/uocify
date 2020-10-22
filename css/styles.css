@@ -1,4 +1,30 @@
-h1{
+body{
     font-family: 'Spartan', sans-serif;
-    font-weight: 700;
+    font-weight: 400;
+    color:#424141
+}
+
+.logo-cabecera{
+    width:100%;
+    height:auto;
+}
+
+h1{
+    font-weight: 900;
+}
+h1 span{
+    color:#8F8F8F;
+}
+
+h2{
+    font-weight: 900;
+}
+
+/* TABS */ 
+.nav.nav-tabs,.nav.nav-tabs .nav-link.active{
+    border:0;
+}
+.nav.nav-tabs .nav-link.active{
+    border-bottom:2px solid red;
+    font-weight: 600;
 }
