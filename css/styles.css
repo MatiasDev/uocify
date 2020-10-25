@@ -5,15 +5,46 @@ body{
     background-color:#F7F7F8;
 }
 
+/* CABCERA */
 header{
-    box-shadow: 0px 0px 10px -5px #999;
+    box-shadow: 0 0 10px -5px #999;
     background-color: #fff;
+    position:fixed;
+    z-index: 999;
 }
 
 .logo-cabecera{
-    width:100%;
+    width:130px;
     height:auto;
+    margin-left:12px;
 }
+
+header .input-group-text{
+    border:0;
+    background-color: #fff;
+    font-size: 0.8rem;
+    padding:2px;
+}
+
+header .form-control{
+    border:0;
+    font-size: 0.8rem;
+}
+
+.nombre-usuario{
+    font-size: 0.7rem;
+    font-weight: 600;
+    margin-right:10px;
+}  
+
+.ico-usuario{
+    background-color: #eee;
+    padding:6px;
+    border-radius: 50%;
+    font-size:0.8rem
+}   
+
+/* TITULOS */
 
 h1{
     font-weight: 900;
@@ -24,10 +55,14 @@ h1 span{
 
 h1{
     font-weight: 900;
+    font-size: 1.6rem;
 }
 
 h2{
-    font-weight: 700;
+    font-weight: 800;
+    font-size: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 .contenedor-resultados{
@@ -35,6 +70,12 @@ h2{
 }
 
 /* TABS */ 
+
+.nav.nav-tabs,.nav.nav-tabs .nav-link{
+    font-size: 0.7rem;
+    color:#666
+}
+
 .nav.nav-tabs,.nav.nav-tabs .nav-link.active{
     border:0;
 }
@@ -43,11 +84,93 @@ h2{
     font-weight: 600;
 }
 
+.nav.nav-tabs .nav-link.active{
+    border-bottom:2px solid red;
+    font-weight: 600;
+}
+
+
+.nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover{
+    border-color:transparent;
+    border-bottom:1px solid #999;
+    color:#000;
+}
+
+
+/* CANCIONES */
+.contenedorCanciones{
+    margin-bottom: 1.5rem;
+}
+
+.contenedorCanciones .table thead th {
+    font-size:0.6rem;
+    color:#666;
+}
+.contenedorCanciones .table thead th {
+    border-bottom:1px;
+    padding: .7rem;
+}
+
+#tablaCanciones img{
+    max-width:28px;
+    border-radius: 3px;
+}
+#tablaCanciones td{
+    font-size: 0.7rem;
+    vertical-align: middle;
+}
+
+/* ARTISTAS Y ALBUMES */
+/*
+.contenedorAlbums figure,.contenedorArtistas figure{
+    margin-bottom: 1.5rem;
+}
+*/
+
+.contenedorAlbums figure img{
+    border:1px solid #eee;
+}
+
+.contenedorArtistas figcaption span{
+    text-align:center;
+}
+
+figure img:hover{
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+figcaption span{
+    font-weight: 600;
+    font-size: 0.6rem;
+    display:block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 0.7rem;
+    margin-top:6px;
+}
+
+figcaption span:nth-child(1){
+    text-overflow: ellipsis;
+}
+
+figcaption span:nth-child(2){
+    color:#666;
+    font-weight: 400;
+}
+
+
+
 /* IMAGENES */
 .img-fluid{
     width:100%
 }
-
 .redondo{
     border-radius: 50%;
+}
+
+/* VARIOS */
+.pt-5{
+    padding-top: 5rem!important;
 }

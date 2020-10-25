@@ -1,216 +1,762 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UOCIFY - Buscador</title>
-
-    <!-- CSS Google Font Spartan  -->
-    <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@400;600;700;900&display=swap" rel="stylesheet">
-
-    <!-- CSS Bootstrap -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-
-    <!-- CSS UOCIFY -->
-    <link href="css/styles.css" rel="stylesheet">
-
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-
-    <!-- JS Bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-
-    <!-- FontAwsome -->
-    <script src="https://kit.fontawesome.com/ebac1cb562.js" crossorigin="anonymous"></script>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UOCIFY - Buscador</title>
+  <meta name="description" content="UOCIFY plataforma streaming the música par alos estudiantes de la UOC. Proyecto para Aplicaciones interactivas multiplataforma aula 1"/>
+  
+  <!-- CSS Google Font Spartan  -->
+  <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@400;600;700;900&display=swap" rel="stylesheet">
+  
+  <!-- CSS Bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  
+  <!-- CSS UOCIFY -->
+  <link href="css/styles.css" rel="stylesheet">
+  
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  
+  <!-- JS Bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+  
+  <!-- FontAwsome -->
+  <script src="https://kit.fontawesome.com/ebac1cb562.js" crossorigin="anonymous"></script>
+  
 </head>
 <body>
-
-    <!-- CABECERA -->
-    <header class="container-fluid mb-4">
-        <div class="row">
-          <div class="col-sm-2">
-            <a href="/"><img src="images/uocify_logo.svg" alt="Logo UOCIFY" class="logo-cabecera" /></a>
+  
+  <!-- CABECERA -->
+  <header class="d-flex w-100">
+    
+    <div class="align-self-center p-2">
+      <a href="/"><img src="images/uocify_logo.svg" alt="Logo UOCIFY" class="logo-cabecera" /></a>
+    </div>
+    
+    <div class="flex-grow-1 align-self-center p-2">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text"><i class="fas fa-search"></i></div>
+        </div>
+        <input type="text" class="form-control form-control-sm" placeholder="the beatles">
+      </div>
+    </div>
+    
+    <div class="align-self-center p-2">
+      <span class="nombre-usuario">Matias</span>
+      <span class="ico-usuario"><i class="fas fa-user"></i></span>
+    </div>
+    
+  </header>
+  
+  <!-- CUERPO -->
+  <div class="container pt-5">
+    
+    <h1>Resultados de <span>the beatles</span></h1>
+    
+    <div class="container contenedor-resultados">
+      
+      <!-- TABS -->
+      <ul class="nav nav-tabs mb-4" id="tabContenedor" role="tablist">
+        <li class="nav-item" role="presentation">
+          <a href="#panelTodo" class="nav-link active" id="tabTodo" data-toggle="tab">Todo</a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a href="#panelCanciones" class="nav-link" id="tabCanciones" data-toggle="tab">Canciones</a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a href="#panelAlbumes" class="nav-link" id="tabAlbumes" data-toggle="tab">Álbumes</a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a href="#panelArtistas" class="nav-link" id="tabArtistas" data-toggle="tab">Artistas</a>
+        </li>
+      </ul>
+      
+      
+      <!-- PANELES -->
+      <div class="tab-content" id="panelContenedor">
+        
+        <!-- TAB-CONTENIDO TODO -->
+        <div class="tab-pane fade show active" id="panelTodo" role="tabpanel">
+          
+          <div class="contenedorCanciones">
+            
+            <h2>Canciones <i class="fas fa-chevron-right"></i></h2>
+            
+            <table class="table table-sm table-hover" id="tablaCanciones">
+              <tr>
+                <td><img src="images/albums/let-it-be.jpg" class="img-fluid" alt="Foto del albúm Let It Be (Remastered)"></td>
+                <td>Let It Be (Remastered 2009)</td>
+                <td>The Beatles</td>
+                <td>Let It Be (Remastered)</td>
+                <td>04:03</td>
+              </tr>
+              <tr>
+                <td><img src="images/albums/1.jpg" class="img-fluid" alt="Foto del albúm 1 (Remastered)"></td>
+                <td>Hey Jude (Remastered 2015)</td>
+                <td>The Beatles</td>
+                <td>1 (Remastered)</td>
+                <td>07:05</td>
+              </tr>
+              <tr>
+                <td><img src="images/albums/1.jpg" class="img-fluid" alt="Foto del albúm 1 (Remastered)"></td>
+                <td>Dat Tripper (Remastered 2015)</td>
+                <td>The Beatles</td>
+                <td>1 (Remastered)</td>
+                <td>02:49</td>
+              </tr>
+              <tr>
+                <td><img src="images/albums/abbey-road.jpg" class="img-fluid" alt="Foto del albúm Abbey Road (Remastered)"></td>
+                <td>Here Comes The Sun (Remastered 2009)</td>
+                <td>The Beatles</td>
+                <td>Abbey Road (Remastered)</td>
+                <td>03:05</td>
+              </tr> 
+              <tr>
+                <td><img src="images/albums/rubber-soul.jpg" class="img-fluid" alt="Foto del albúm Rubber Soul (Remastered)"></td>
+                <td>Michelle (Remastered 2009)</td>
+                <td>The Beatles</td>
+                <td>Rubber Soul (Remastered)</td>
+                <td>02:42</td>
+              </tr>
+              <tr>
+                <td><img src="images/albums/1.jpg" class="img-fluid" alt="Foto del albúm 1 (Remastered)"></td>
+                <td>Help! (Remastered 2009)</td>
+                <td>The Beatles</td>
+                <td>1 (Remastered)</td>
+                <td>02:19</td>
+              </tr>  
+            </table>
+            
           </div>
-          <div class="col-sm-8">
-
-            <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
-            <div class="input-group mb-2 mr-sm-2">
-              <div class="input-group-prepend">
-                <div class="input-group-text"><i class="fas fa-search"></i></div>
+          
+          <div class="contenedorAlbums">
+            
+            <h2>Álbumes <i class="fas fa-chevron-right"></i></h2>
+            
+            <div class="row mb-4">
+              <div class="col-sm-12 col-md-2">
+                <figure>
+                  <img src="images/albums/the-beatles.jpg" class="img-fluid">
+                  <figcaption><span>The Beatles (Remastered)</span><span>The Beatles</span></figcaption>
+                </figure>
               </div>
-              <input type="text" class="form-control" placeholder="the beatles">
+              <div class="col-sm-12 col-md-2">
+                <figure>
+                  <img src="images/albums/sgt-peppers.jpg" class="img-fluid">
+                  <figcaption><span>Srt. Pepper's Lonely Hearts (Remastered)</span><span>The Beatles</span></figcaption>
+                </figure>
+              </div>
+              <div class="col-sm-12 col-md-2">
+                <figure>
+                  <img src="images/albums/let-it-be.jpg" class="img-fluid">
+                  <figcaption><span>Let It Be (Remastered)</span><span>The Beatles</span></figcaption>
+                </figure>
+              </div>
+              <div class="col-sm-12 col-md-2">
+                <figure>
+                  <img src="images/albums/magical-mystery-tour.jpg" class="img-fluid">
+                  <figcaption><span>Magical Mystery Tour (Remastered)</span><span>The Beatles</span></figcaption>
+                </figure>
+              </div>
+              <div class="col-sm-12 col-md-2">
+                <figure>
+                  <img src="images/albums/yellow-submarine.jpg" class="img-fluid">
+                  <figcaption><span>Yellow Submarine Songtrack</span><span>The Beatles</span></figcaption>
+                </figure>
+              </div>
+              <div class="col-sm-12 col-md-2">
+                <figure>
+                  <img src="images/albums/please-please-me.jpg" class="img-fluid">
+                  <figcaption><span>Please Please Me (Remastered)</span><span>The Beatles</span></figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+          
+          <div class="contenedorArtistas">
+            <h2>Artistas <i class="fas fa-chevron-right"></i></h2>
+            
+            <div class="row mb-4">
+              <div class="col-sm-12 col-md-2">
+                <figure>
+                  <img src="images/artists/the-beatles.jpg" class="img-fluid redondo">
+                  <figcaption><span>The Beatles</span> <span>5.699.029 fans</span></figcaption>
+                </figure>
+              </div>
+              <div class="col-sm-12 col-md-2">
+                <figure>
+                  <img src="images/artists/the-beatles-recovered.jpg" class="img-fluid redondo">
+                  <figcaption><span>The Beatles Recovered Band</span><span>187.118 fans</span></figcaption>
+                </figure>
+              </div>
+              <div class="col-sm-12 col-md-2">
+                <figure>
+                  <img src="images/artists/the-beatles-tribute.jpg" class="img-fluid redondo">
+                  <figcaption><span>The Beatles Tribute</span><span>636 fans</span></figcaption>
+                </figure>
+              </div>
+              <div class="col-sm-12 col-md-2">
+                <figure>
+                  <img src="images/artists/the-beatles-acoustic-trio.jpg" class="img-fluid redondo">
+                  <figcaption><span>The Beatles Acustic Trio</span><span>525 fans</span></figcaption>
+                </figure>
+              </div>
+              <div class="col-sm-12 col-md-2">
+                <figure>
+                  <img src="images/artists/empty.jpg" class="img-fluid redondo">
+                  <figcaption><span>The Beatles Symphony Orchestra</span><span>708 fans</span></figcaption>
+                </figure>
+              </div>
+              <div class="col-sm-12 col-md-2">
+                <figure>
+                  <img src="images/artists/the-beatles-revival-band.jpg" class="img-fluid redondo">
+                  <figcaption><span>The Beatles Revival Bans</span><span>1767 fans</span></figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        
+        <!--  TAB-CONTENIDO CANCIONES -->
+        <div class="tab-pane fade" id="panelCanciones" role="tabpanel">
+          
+          <div class="contenedorCanciones">
+            
+            <h2>295 canciones</h2>
+            
+            <table class="table table-sm table-hover" id="tablaCanciones">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>CANCIÓN</th>
+                  <th>ARTISTA</th>
+                  <th>ÁLBUM</th>
+                  <th>D.</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><img src="images/albums/let-it-be.jpg" class="img-fluid" alt="Foto del albúm Let It Be (Remastered)"></td>
+                  <td>Let It Be (Remastered 2009)</td>
+                  <td>The Beatles</td>
+                  <td>Let It Be (Remastered)</td>
+                  <td>04:03</td>
+                </tr>
+                <tr>
+                  <td><img src="images/albums/1.jpg" class="img-fluid" alt="Foto del albúm 1 (Remastered)"></td>
+                  <td>Hey Jude (Remastered 2015)</td>
+                  <td>The Beatles</td>
+                  <td>1 (Remastered)</td>
+                  <td>07:05</td>
+                </tr>
+                <tr>
+                  <td><img src="images/albums/1.jpg" class="img-fluid" alt="Foto del albúm 1 (Remastered)"></td>
+                  <td>Dat Tripper (Remastered 2015)</td>
+                  <td>The Beatles</td>
+                  <td>1 (Remastered)</td>
+                  <td>02:49</td>
+                </tr>
+                <tr>
+                  <td><img src="images/albums/abbey-road.jpg" class="img-fluid" alt="Foto del albúm Abbey Road (Remastered)"></td>
+                  <td>Here Comes The Sun (Remastered 2009)</td>
+                  <td>The Beatles</td>
+                  <td>Abbey Road (Remastered)</td>
+                  <td>03:05</td>
+                </tr> 
+                <tr>
+                  <td><img src="images/albums/rubber-soul.jpg" class="img-fluid" alt="Foto del albúm Rubber Soul (Remastered)"></td>
+                  <td>Michelle (Remastered 2009)</td>
+                  <td>The Beatles</td>
+                  <td>Rubber Soul (Remastered)</td>
+                  <td>02:42</td>
+                </tr>
+                <tr>
+                  <td><img src="images/albums/1.jpg" class="img-fluid" alt="Foto del albúm 1 (Remastered)"></td>
+                  <td>Help! (Remastered 2009)</td>
+                  <td>The Beatles</td>
+                  <td>1 (Remastered)</td>
+                  <td>02:19</td>
+                </tr>
+                <tr>
+                  <td><img src="images/albums/let-it-be.jpg" class="img-fluid" alt="Foto del albúm Let It Be (Remastered)"></td>
+                  <td>Let It Be (Remastered 2009)</td>
+                  <td>The Beatles</td>
+                  <td>Let It Be (Remastered)</td>
+                  <td>04:03</td>
+                </tr>
+                <tr>
+                  <td><img src="images/albums/1.jpg" class="img-fluid" alt="Foto del albúm 1 (Remastered)"></td>
+                  <td>Hey Jude (Remastered 2015)</td>
+                  <td>The Beatles</td>
+                  <td>1 (Remastered)</td>
+                  <td>07:05</td>
+                </tr>
+                <tr>
+                  <td><img src="images/albums/1.jpg" class="img-fluid" alt="Foto del albúm 1 (Remastered)"></td>
+                  <td>Dat Tripper (Remastered 2015)</td>
+                  <td>The Beatles</td>
+                  <td>1 (Remastered)</td>
+                  <td>02:49</td>
+                </tr>
+                <tr>
+                  <td><img src="images/albums/abbey-road.jpg" class="img-fluid" alt="Foto del albúm Abbey Road (Remastered)"></td>
+                  <td>Here Comes The Sun (Remastered 2009)</td>
+                  <td>The Beatles</td>
+                  <td>Abbey Road (Remastered)</td>
+                  <td>03:05</td>
+                </tr> 
+                <tr>
+                  <td><img src="images/albums/rubber-soul.jpg" class="img-fluid" alt="Foto del albúm Rubber Soul (Remastered)"></td>
+                  <td>Michelle (Remastered 2009)</td>
+                  <td>The Beatles</td>
+                  <td>Rubber Soul (Remastered)</td>
+                  <td>02:42</td>
+                </tr>
+                <tr>
+                  <td><img src="images/albums/1.jpg" class="img-fluid" alt="Foto del albúm 1 (Remastered)"></td>
+                  <td>Help! (Remastered 2009)</td>
+                  <td>The Beatles</td>
+                  <td>1 (Remastered)</td>
+                  <td>02:19</td>
+                </tr> 
+                <tr>
+                  <td><img src="images/albums/let-it-be.jpg" class="img-fluid" alt="Foto del albúm Let It Be (Remastered)"></td>
+                  <td>Let It Be (Remastered 2009)</td>
+                  <td>The Beatles</td>
+                  <td>Let It Be (Remastered)</td>
+                  <td>04:03</td>
+                </tr>
+                <tr>
+                  <td><img src="images/albums/1.jpg" class="img-fluid" alt="Foto del albúm 1 (Remastered)"></td>
+                  <td>Hey Jude (Remastered 2015)</td>
+                  <td>The Beatles</td>
+                  <td>1 (Remastered)</td>
+                  <td>07:05</td>
+                </tr>
+                <tr>
+                  <td><img src="images/albums/1.jpg" class="img-fluid" alt="Foto del albúm 1 (Remastered)"></td>
+                  <td>Dat Tripper (Remastered 2015)</td>
+                  <td>The Beatles</td>
+                  <td>1 (Remastered)</td>
+                  <td>02:49</td>
+                </tr>
+                <tr>
+                  <td><img src="images/albums/abbey-road.jpg" class="img-fluid" alt="Foto del albúm Abbey Road (Remastered)"></td>
+                  <td>Here Comes The Sun (Remastered 2009)</td>
+                  <td>The Beatles</td>
+                  <td>Abbey Road (Remastered)</td>
+                  <td>03:05</td>
+                </tr> 
+                <tr>
+                  <td><img src="images/albums/rubber-soul.jpg" class="img-fluid" alt="Foto del albúm Rubber Soul (Remastered)"></td>
+                  <td>Michelle (Remastered 2009)</td>
+                  <td>The Beatles</td>
+                  <td>Rubber Soul (Remastered)</td>
+                  <td>02:42</td>
+                </tr>
+                <tr>
+                  <td><img src="images/albums/1.jpg" class="img-fluid" alt="Foto del albúm 1 (Remastered)"></td>
+                  <td>Help! (Remastered 2009)</td>
+                  <td>The Beatles</td>
+                  <td>1 (Remastered)</td>
+                  <td>02:19</td>
+                </tr> 
+                <tr>
+                  <td><img src="images/albums/let-it-be.jpg" class="img-fluid" alt="Foto del albúm Let It Be (Remastered)"></td>
+                  <td>Let It Be (Remastered 2009)</td>
+                  <td>The Beatles</td>
+                  <td>Let It Be (Remastered)</td>
+                  <td>04:03</td>
+                </tr>
+                <tr>
+                  <td><img src="images/albums/1.jpg" class="img-fluid" alt="Foto del albúm 1 (Remastered)"></td>
+                  <td>Hey Jude (Remastered 2015)</td>
+                  <td>The Beatles</td>
+                  <td>1 (Remastered)</td>
+                  <td>07:05</td>
+                </tr>
+                <tr>
+                  <td><img src="images/albums/1.jpg" class="img-fluid" alt="Foto del albúm 1 (Remastered)"></td>
+                  <td>Dat Tripper (Remastered 2015)</td>
+                  <td>The Beatles</td>
+                  <td>1 (Remastered)</td>
+                  <td>02:49</td>
+                </tr>
+                <tr>
+                  <td><img src="images/albums/abbey-road.jpg" class="img-fluid" alt="Foto del albúm Abbey Road (Remastered)"></td>
+                  <td>Here Comes The Sun (Remastered 2009)</td>
+                  <td>The Beatles</td>
+                  <td>Abbey Road (Remastered)</td>
+                  <td>03:05</td>
+                </tr> 
+                <tr>
+                  <td><img src="images/albums/rubber-soul.jpg" class="img-fluid" alt="Foto del albúm Rubber Soul (Remastered)"></td>
+                  <td>Michelle (Remastered 2009)</td>
+                  <td>The Beatles</td>
+                  <td>Rubber Soul (Remastered)</td>
+                  <td>02:42</td>
+                </tr>
+                <tr>
+                  <td><img src="images/albums/1.jpg" class="img-fluid" alt="Foto del albúm 1 (Remastered)"></td>
+                  <td>Help! (Remastered 2009)</td>
+                  <td>The Beatles</td>
+                  <td>1 (Remastered)</td>
+                  <td>02:19</td>
+                </tr> 
+                <tr>
+                  <td><img src="images/albums/let-it-be.jpg" class="img-fluid" alt="Foto del albúm Let It Be (Remastered)"></td>
+                  <td>Let It Be (Remastered 2009)</td>
+                  <td>The Beatles</td>
+                  <td>Let It Be (Remastered)</td>
+                  <td>04:03</td>
+                </tr>
+                <tr>
+                  <td><img src="images/albums/1.jpg" class="img-fluid" alt="Foto del albúm 1 (Remastered)"></td>
+                  <td>Hey Jude (Remastered 2015)</td>
+                  <td>The Beatles</td>
+                  <td>1 (Remastered)</td>
+                  <td>07:05</td>
+                </tr>
+                <tr>
+                  <td><img src="images/albums/1.jpg" class="img-fluid" alt="Foto del albúm 1 (Remastered)"></td>
+                  <td>Dat Tripper (Remastered 2015)</td>
+                  <td>The Beatles</td>
+                  <td>1 (Remastered)</td>
+                  <td>02:49</td>
+                </tr>
+                <tr>
+                  <td><img src="images/albums/abbey-road.jpg" class="img-fluid" alt="Foto del albúm Abbey Road (Remastered)"></td>
+                  <td>Here Comes The Sun (Remastered 2009)</td>
+                  <td>The Beatles</td>
+                  <td>Abbey Road (Remastered)</td>
+                  <td>03:05</td>
+                </tr> 
+                <tr>
+                  <td><img src="images/albums/rubber-soul.jpg" class="img-fluid" alt="Foto del albúm Rubber Soul (Remastered)"></td>
+                  <td>Michelle (Remastered 2009)</td>
+                  <td>The Beatles</td>
+                  <td>Rubber Soul (Remastered)</td>
+                  <td>02:42</td>
+                </tr>
+                <tr>
+                  <td><img src="images/albums/1.jpg" class="img-fluid" alt="Foto del albúm 1 (Remastered)"></td>
+                  <td>Help! (Remastered 2009)</td>
+                  <td>The Beatles</td>
+                  <td>1 (Remastered)</td>
+                  <td>02:19</td>
+                </tr> 
+              </tbody>
+            </table>
+          </div>
+          
+        </div>
+        
+        <!--  TAB-CONTENIDO ALBUMES -->
+        <div class="tab-pane fade" id="panelAlbumes" role="tabpanel">
+          
+          <div class="contenedorAlbums">
+            
+            <h2>286 álbumes</h2>
+            
+            <div class="row mb-4">
+              <div class="col-sm-12 col-md-2">
+                <figure>
+                  <img src="images/albums/the-beatles.jpg" class="img-fluid">
+                  <figcaption><span>The Beatles (Remastered)</span><span>The Beatles</span></figcaption>
+                </figure>
+              </div>
+              <div class="col-sm-12 col-md-2">
+                <figure>
+                  <img src="images/albums/sgt-peppers.jpg" class="img-fluid">
+                  <figcaption><span>Srt. Pepper's Lonely Hearts (Remastered)</span><span>The Beatles</span></figcaption>
+                </figure>
+              </div>
+              <div class="col-sm-12 col-md-2">
+                <figure>
+                  <img src="images/albums/let-it-be.jpg" class="img-fluid">
+                  <figcaption><span>Let It Be (Remastered)</span><span>The Beatles</span></figcaption>
+                </figure>
+              </div>
+              <div class="col-sm-12 col-md-2">
+                <figure>
+                  <img src="images/albums/magical-mystery-tour.jpg" class="img-fluid">
+                  <figcaption><span>Magical Mystery Tour (Remastered)</span><span>The Beatles</span></figcaption>
+                </figure>
+              </div>
+              <div class="col-sm-12 col-md-2">
+                <figure>
+                  <img src="images/albums/yellow-submarine.jpg" class="img-fluid">
+                  <figcaption><span>Yellow Submarine Songtrack</span><span>The Beatles</span></figcaption>
+                </figure>
+              </div>
+              <div class="col-sm-12 col-md-2">
+                <figure>
+                  <img src="images/albums/please-please-me.jpg" class="img-fluid">
+                  <figcaption><span>Please Please Me (Remastered)</span><span>The Beatles</span></figcaption>
+                </figure>
+              </div>
+            </div>
+            
+            <div class="row mb-4">
+              <div class="col-sm-12 col-md-2">
+                <figure>
+                  <img src="images/albums/the-beatles.jpg" class="img-fluid">
+                  <figcaption><span>The Beatles (Remastered)</span><span>The Beatles</span></figcaption>
+                </figure>
+              </div>
+              <div class="col-sm-12 col-md-2">
+                <figure>
+                  <img src="images/albums/sgt-peppers.jpg" class="img-fluid">
+                  <figcaption><span>Srt. Pepper's Lonely Hearts (Remastered)</span><span>The Beatles</span></figcaption>
+                </figure>
+              </div>
+              <div class="col-sm-12 col-md-2">
+                <figure>
+                  <img src="images/albums/let-it-be.jpg" class="img-fluid">
+                  <figcaption><span>Let It Be (Remastered)</span><span>The Beatles</span></figcaption>
+                </figure>
+              </div>
+              <div class="col-sm-12 col-md-2">
+                <figure>
+                  <img src="images/albums/magical-mystery-tour.jpg" class="img-fluid">
+                  <figcaption><span>Magical Mystery Tour (Remastered)</span><span>The Beatles</span></figcaption>
+                </figure>
+              </div>
+              <div class="col-sm-12 col-md-2">
+                <figure>
+                  <img src="images/albums/yellow-submarine.jpg" class="img-fluid">
+                  <figcaption><span>Yellow Submarine Songtrack</span><span>The Beatles</span></figcaption>
+                </figure>
+              </div>
+              <div class="col-sm-12 col-md-2">
+                <figure>
+                  <img src="images/albums/please-please-me.jpg" class="img-fluid">
+                  <figcaption><span>Please Please Me (Remastered)</span><span>The Beatles</span></figcaption>
+                </figure>
+              </div>
+            </div>
+            
+            <div class="row mb-4">
+              <div class="col-sm-12 col-md-2">
+                <figure>
+                  <img src="images/albums/the-beatles.jpg" class="img-fluid">
+                  <figcaption><span>The Beatles (Remastered)</span><span>The Beatles</span></figcaption>
+                </figure>
+              </div>
+              <div class="col-sm-12 col-md-2">
+                <figure>
+                  <img src="images/albums/sgt-peppers.jpg" class="img-fluid">
+                  <figcaption><span>Srt. Pepper's Lonely Hearts (Remastered)</span><span>The Beatles</span></figcaption>
+                </figure>
+              </div>
+              <div class="col-sm-12 col-md-2">
+                <figure>
+                  <img src="images/albums/let-it-be.jpg" class="img-fluid">
+                  <figcaption><span>Let It Be (Remastered)</span><span>The Beatles</span></figcaption>
+                </figure>
+              </div>
+              <div class="col-sm-12 col-md-2">
+                <figure>
+                  <img src="images/albums/magical-mystery-tour.jpg" class="img-fluid">
+                  <figcaption><span>Magical Mystery Tour (Remastered)</span><span>The Beatles</span></figcaption>
+                </figure>
+              </div>
+              <div class="col-sm-12 col-md-2">
+                <figure>
+                  <img src="images/albums/yellow-submarine.jpg" class="img-fluid">
+                  <figcaption><span>Yellow Submarine Songtrack</span><span>The Beatles</span></figcaption>
+                </figure>
+              </div>
+              <div class="col-sm-12 col-md-2">
+                <figure>
+                  <img src="images/albums/please-please-me.jpg" class="img-fluid">
+                  <figcaption><span>Please Please Me (Remastered)</span><span>The Beatles</span></figcaption>
+                </figure>
+              </div>
+            </div>
+            
+            <div class="row mb-4">
+              <div class="col-sm-12 col-md-2">
+                <figure>
+                  <img src="images/albums/the-beatles.jpg" class="img-fluid">
+                  <figcaption><span>The Beatles (Remastered)</span><span>The Beatles</span></figcaption>
+                </figure>
+              </div>
+              <div class="col-sm-12 col-md-2">
+                <figure>
+                  <img src="images/albums/sgt-peppers.jpg" class="img-fluid">
+                  <figcaption><span>Srt. Pepper's Lonely Hearts (Remastered)</span><span>The Beatles</span></figcaption>
+                </figure>
+              </div>
+              <div class="col-sm-12 col-md-2">
+                <figure>
+                  <img src="images/albums/let-it-be.jpg" class="img-fluid">
+                  <figcaption><span>Let It Be (Remastered)</span><span>The Beatles</span></figcaption>
+                </figure>
+              </div>
+              <div class="col-sm-12 col-md-2">
+                <figure>
+                  <img src="images/albums/magical-mystery-tour.jpg" class="img-fluid">
+                  <figcaption><span>Magical Mystery Tour (Remastered)</span><span>The Beatles</span></figcaption>
+                </figure>
+              </div>
+              <div class="col-sm-12 col-md-2">
+                <figure>
+                  <img src="images/albums/yellow-submarine.jpg" class="img-fluid">
+                  <figcaption><span>Yellow Submarine Songtrack</span><span>The Beatles</span></figcaption>
+                </figure>
+              </div>
+              <div class="col-sm-12 col-md-2">
+                <figure>
+                  <img src="images/albums/please-please-me.jpg" class="img-fluid">
+                  <figcaption><span>Please Please Me (Remastered)</span><span>The Beatles</span></figcaption>
+                </figure>
+              </div>
             </div>
 
           </div>
-          <div class="col-sm-2">
-              Matias
-            <i class="fas fa-user"></i>
+          
+        </div>
+        
+        <!--  TAB-CONTENIDO ARTISTAS -->
+        <div class="tab-pane fade" id="panelArtistas" role="tabpanel">
+          
+          <div class="contenedorArtistas">
+            <h2>72 artistas <i class="fas fa-chevron-right"></i></h2>
+            
+            <div class="row mb-4">
+              <div class="col-sm-12 col-md-2">
+                <figure>
+                  <img src="images/artists/the-beatles.jpg" class="img-fluid redondo">
+                  <figcaption><span>The Beatles</span> <span>5.699.029 fans</span></figcaption>
+                </figure>
+              </div>
+              <div class="col-sm-12 col-md-2">
+                <figure>
+                  <img src="images/artists/the-beatles-recovered.jpg" class="img-fluid redondo">
+                  <figcaption><span>The Beatles Recovered Band</span><span>187.118 fans</span></figcaption>
+                </figure>
+              </div>
+              <div class="col-sm-12 col-md-2">
+                <figure>
+                  <img src="images/artists/the-beatles-tribute.jpg" class="img-fluid redondo">
+                  <figcaption><span>The Beatles Tribute</span><span>636 fans</span></figcaption>
+                </figure>
+              </div>
+              <div class="col-sm-12 col-md-2">
+                <figure>
+                  <img src="images/artists/the-beatles-acoustic-trio.jpg" class="img-fluid redondo">
+                  <figcaption><span>The Beatles Acustic Trio</span><span>525 fans</span></figcaption>
+                </figure>
+              </div>
+              <div class="col-sm-12 col-md-2">
+                <figure>
+                  <img src="images/artists/empty.jpg" class="img-fluid redondo">
+                  <figcaption><span>The Beatles Symphony Orchestra</span><span>708 fans</span></figcaption>
+                </figure>
+              </div>
+              <div class="col-sm-12 col-md-2">
+                <figure>
+                  <img src="images/artists/the-beatles-revival-band.jpg" class="img-fluid redondo">
+                  <figcaption><span>The Beatles Revival Bans</span><span>1767 fans</span></figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+          
+          <div class="row mb-4">
+            <div class="col-sm-12 col-md-2">
+              <figure>
+                <img src="images/artists/the-beatles.jpg" class="img-fluid redondo">
+                <figcaption><span>The Beatles</span> <span>5.699.029 fans</span></figcaption>
+              </figure>
+            </div>
+            <div class="col-sm-12 col-md-2">
+              <figure>
+                <img src="images/artists/the-beatles-recovered.jpg" class="img-fluid redondo">
+                <figcaption><span>The Beatles Recovered Band</span><span>187.118 fans</span></figcaption>
+              </figure>
+            </div>
+            <div class="col-sm-12 col-md-2">
+              <figure>
+                <img src="images/artists/the-beatles-tribute.jpg" class="img-fluid redondo">
+                <figcaption><span>The Beatles Tribute</span><span>636 fans</span></figcaption>
+              </figure>
+            </div>
+            <div class="col-sm-12 col-md-2">
+              <figure>
+                <img src="images/artists/the-beatles-acoustic-trio.jpg" class="img-fluid redondo">
+                <figcaption><span>The Beatles Acustic Trio</span><span>525 fans</span></figcaption>
+              </figure>
+            </div>
+            <div class="col-sm-12 col-md-2">
+              <figure>
+                <img src="images/artists/empty.jpg" class="img-fluid redondo">
+                <figcaption><span>The Beatles Symphony Orchestra</span><span>708 fans</span></figcaption>
+              </figure>
+            </div>
+            <div class="col-sm-12 col-md-2">
+              <figure>
+                <img src="images/artists/the-beatles-revival-band.jpg" class="img-fluid redondo">
+                <figcaption><span>The Beatles Revival Bans</span><span>1767 fans</span></figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <div class="row mb-4">
+            <div class="col-sm-12 col-md-2">
+              <figure>
+                <img src="images/artists/the-beatles.jpg" class="img-fluid redondo">
+                <figcaption><span>The Beatles</span> <span>5.699.029 fans</span></figcaption>
+              </figure>
+            </div>
+            <div class="col-sm-12 col-md-2">
+              <figure>
+                <img src="images/artists/the-beatles-recovered.jpg" class="img-fluid redondo">
+                <figcaption><span>The Beatles Recovered Band</span><span>187.118 fans</span></figcaption>
+              </figure>
+            </div>
+            <div class="col-sm-12 col-md-2">
+              <figure>
+                <img src="images/artists/the-beatles-tribute.jpg" class="img-fluid redondo">
+                <figcaption><span>The Beatles Tribute</span><span>636 fans</span></figcaption>
+              </figure>
+            </div>
+            <div class="col-sm-12 col-md-2">
+              <figure>
+                <img src="images/artists/the-beatles-acoustic-trio.jpg" class="img-fluid redondo">
+                <figcaption><span>The Beatles Acustic Trio</span><span>525 fans</span></figcaption>
+              </figure>
+            </div>
+            <div class="col-sm-12 col-md-2">
+              <figure>
+                <img src="images/artists/empty.jpg" class="img-fluid redondo">
+                <figcaption><span>The Beatles Symphony Orchestra</span><span>708 fans</span></figcaption>
+              </figure>
+            </div>
+            <div class="col-sm-12 col-md-2">
+              <figure>
+                <img src="images/artists/the-beatles-revival-band.jpg" class="img-fluid redondo">
+                <figcaption><span>The Beatles Revival Bans</span><span>1767 fans</span></figcaption>
+              </figure>
+            </div>
           </div>
         </div>
-    </header>
-  
-    <!-- CUERPO -->
-    <div class="container">
-
-        <h1>Resultados de <span>the beatles</span></h1>
-
-        <div class="container contenedor-resultados">
-
-        <!-- TABS -->
-        <ul class="nav nav-tabs mb-4" id="tabContenedor" role="tablist">
-            <li class="nav-item" role="presentation">
-              <a href="#panelTodo" class="nav-link active" id="tabTodo" data-toggle="tab">Todo</a>
-            </li>
-            <li class="nav-item" role="presentation">
-              <a href="#panelCanciones" class="nav-link" id="tabCanciones" data-toggle="tab">Canciones</a>
-            </li>
-            <li class="nav-item" role="presentation">
-              <a href="#panelAlbumes" class="nav-link"id="tabAlbumes" data-toggle="tab">Álbumes</a>
-            </li>
-            <li class="nav-item" role="presentation">
-                <a href="#panelArtistas" class="nav-link" id="tabArtistas" data-toggle="tab">Artistas</a>
-              </li>
-          </ul>
-
-          
-
-          <!-- PANELES -->
-          <div class="tab-content" id="panelContenedor">
-                <!-- TAB-CONTENIDO TODO -->
-                <div class="tab-pane fade show active" id="panelTodo" role="tabpanel">
-
-                  <div id="contenedorCanciones">
-                  <h2>Canciones <i class="fas fa-chevron-right"></i></h2>
-
-                    <table class="table table-sm">
-                      <tr>
-                        <td><img src="images/albums/let-it-be.jpg" class="img-fluid"></td>
-                        <td>Let It Be (Remastered 2009)</td>
-                        <td>The Beatles</td>
-                        <td>Let It Be (Remastered)</td>
-                        <td>04:03</td>
-                      </tr>
-                      <tr>
-                        <td><img src="images/albums/1.jpg" class="img-fluid"></td>
-                        <td>Hey Jude (Remastered 2015)</td>
-                        <td>The Beatles</td>
-                        <td>1 (Remastered)</td>
-                        <td>07:05</td>
-                      </tr>
-                      <tr>
-                        <td><img src="images/albums/1.jpg" class="img-fluid"></td>
-                        <td>Dat Tripper (Remastered 2015)</td>
-                        <td>The Beatles</td>
-                        <td>1 (Remastered)</td>
-                        <td>02:49</td>
-                      </tr>
-                      <tr>
-                        <td><img src="images/albums/abbey-road.jpg" class="img-fluid"></td>
-                        <td>Here Comes The Sun (Remastered 2009)</td>
-                        <td>The Beatles</td>
-                        <td>Abbey Road (Remastered)</td>
-                        <td>03:05</td>
-                      </tr> 
-                      <tr>
-                        <td><img src="images/albums/rubber-soul.jpg" class="img-fluid"></td>
-                        <td>Michelle (Remastered 2009)</td>
-                        <td>The Beatles</td>
-                        <td>Rubber Soul (Remastered)</td>
-                        <td>02:42</td>
-                      </tr>
-                      <tr>
-                        <td><img src="images/albums/1.jpg" class="img-fluid"></td>
-                        <td>Help! (Remastered 2009)</td>
-                        <td>The Beatles</td>
-                        <td>1 (Remastered)</td>
-                        <td>02:19</td>
-                      </tr>  
-                    </table>
-                  </div>
-
-                  <div id="contenedorAlbums">
-                  <h2>Álbumes <i class="fas fa-chevron-right"></i></h2>
-
-                    <div class="row mb-4">
-                      <div class="col-sm-12 col-md-2">
-                        <figure>
-                          <img src="images/albums/the-beatles.jpg" class="img-fluid">
-                          <figcaption>The Beatles (Remastered)<span>The Beatles</span></figcaption>
-                        </figure>
-                      </div>
-                      <div class="col-sm-12 col-md-2">
-                        <img src="images/albums/sgt-peppers.jpg" class="img-fluid">
-                        <figcaption>Srt. Pepper's Lonely Hearts (Remastered)<span>The Beatles</span></figcaption>
-                      </div>
-                      <div class="col-sm-12 col-md-2">
-                        <img src="images/albums/let-it-be.jpg" class="img-fluid">
-                        <figcaption>Let It Be (Remastered)<span>The Beatles</span></figcaption>
-                      </div>
-                      <div class="col-sm-12 col-md-2">
-                        <img src="images/albums/magical-mystery-tour.jpg" class="img-fluid">
-                        <figcaption>Magical Mystery Tour (Remastered)<span>The Beatles</span></figcaption>
-                      </div>
-                      <div class="col-sm-12 col-md-2">
-                        <img src="images/albums/yellow-submarine.jpg" class="img-fluid">
-                        <figcaption>Yellow Submarine Songtrack<span>The Beatles</span></figcaption>
-                      </div>
-                      <div class="col-sm-12 col-md-2">
-                        <img src="images/albums/please-please-me.jpg" class="img-fluid">
-                        <figcaption>Please Please Me (Remastered)<span>The Beatles</span></figcaption>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div id="contenedorArtistas">
-                    <h2>Artistas <i class="fas fa-chevron-right"></i></h2>
-
-                    <div class="row mb-4">
-                      <div class="col-sm-12 col-md-2">
-                        <img src="images/artists/the-beatles.jpg" class="img-fluid redondo">
-                        <figcaption>The Beatles<span>5.699.029 fans</span></figcaption>
-                      </div>
-                      <div class="col-sm-12 col-md-2">
-                        <img src="images/artists/the-beatles-recovered.jpg" class="img-fluid redondo">
-                        <figcaption>The Beatles Recovered Band<span>187.118 fans</span></figcaption>
-                      </div>
-                      <div class="col-sm-12 col-md-2">
-                        <img src="images/artists/the-beatles-tribute.jpg" class="img-fluid redondo">
-                        <figcaption>The Beatles Tribute<span>636 fans</span></figcaption>
-                      </div>
-                      <div class="col-sm-12 col-md-2">
-                        <img src="images/artists/the-beatles-acoustic-trio.jpg" class="img-fluid redondo">
-                        <figcaption>The Beatles Acustic Trio<span>525 fans</span></figcaption>
-                      </div>
-                      <div class="col-sm-12 col-md-2">
-                        <img src="images/artists/empty.jpg" class="img-fluid redondo">
-                        <figcaption>The Beatles Symphony Orchestra<span>708 fans</span></figcaption>
-                      </div>
-                      <div class="col-sm-12 col-md-2">
-                        <img src="images/artists/the-beatles-revival-band.jpg" class="img-fluid redondo">
-                        <figcaption>The Beatles Revival Bans<span>1767 fans</span></figcaption>
-                      </div>
-                    </div>
-                  </div>
- 
-                </div>
-                
-                <!--  TAB-CONTENIDO CANCIONES -->
-                <div class="tab-pane fade" id="panelCanciones" role="tabpanel">CANCIONES</div>
-
-                <!--  TAB-CONTENIDO ALBUMES -->
-                <div class="tab-pane fade" id="panelAlbumes" role="tabpanel">ALBUMES</div>
-
-                <!--  TAB-CONTENIDO ARTISTAS -->
-                <div class="tab-pane fade" id="panelArtistas" role="tabpanel">ARTISTAS</div>
-
-            </div>
-
-          </div>
-
+        
+      </div>
+      
     </div>
+    
+  </div>
+  
+</div>
 
-    
-    
+</div>
+
+
+
 </body>
 </html>
